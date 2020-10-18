@@ -16,14 +16,14 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('name');
+            $table->string('order_name');
             $table->float('price');
             $table->string('imageURL');
             $table->boolean('is_added')->default(0);
         //     $table->foreign('user_id')
         //   ->references('id')->on('user_clients')
         //   ->onDelete('cascade');
-        //     $table->timestamps();
+         $table->timestamps();
 
         });
     }

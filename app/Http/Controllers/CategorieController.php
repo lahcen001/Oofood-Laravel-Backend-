@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categorie;
+use App\Category;
 class CategorieController extends Controller
 {
     public function index() {
-        $categories = Categorie::orderBy('id', 'asc')->get();
+        $categories = Category::orderBy('id', 'asc')->get();
         return $categories->toJson();
     }
 }

@@ -19,6 +19,16 @@ class platController extends Controller
         return $plats2->toJson();
 }
 
+public function categorie(Plat $plat,$category_id)
+{
+    $plat =Plat::select('*')->where('category_id', $category_id)->get();
+
+
+    return response()->json($plat, 201);
+}
+
+
+
     // change the is_added to true
     public function markAsAdded(Plat $plat) {
         $plat->is_added = true;
@@ -32,4 +42,37 @@ class platController extends Controller
         $plat->update();
         return response()->json('plat updated!');
     }
+
+
+
+    public function quantite(Request $request, $plat)
+    {
+        $plats = Plat::find($plat)->update([
+           
+                'cont' => $request->cont,
+                
+              
+                ]);
+                return response()->json($request);
+         
+    }
+
+    
+    public function updateall(Request $request , $id)
+    {
+        $id = Plat::find($id)->update([
+           
+                'cont' => $request->cont,
+                'is_added' => $request->is_added,
+              
+                ]);
+                return response()->json($request);
+         
+    }
+
+
+  
+
+
+
 }

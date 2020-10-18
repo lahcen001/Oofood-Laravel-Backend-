@@ -8,11 +8,11 @@ class Order extends Model
 {
 
     public $timestamps =false;
-    protected $fillable = ['user_id','name', 'price', 'imageURL'];
-
+    protected $fillable = ['user_id', 'accept','order_name','cont','price','imageURL','date','exp'];
     public function user()
     {
-
         return $this->belongs('App\User');
     }
 }
+
+
