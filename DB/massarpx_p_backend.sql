@@ -19,28 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `massarpx_p_backend`
+-- Base de données : massarpx_p_backend
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Structure de la table categories
 --
 
-CREATE TABLE `categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'categorie',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE categories (
+  id bigint(20) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  slug varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'categorie',
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `categories`
+-- Déchargement des données de la table categories
 --
 
-INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+INSERT INTO categories (id, name, slug, created_at, updated_at) VALUES
 (2, 'Pizzas', 'Pizzas', NULL, NULL),
 (6, 'Sandwicherie', 'Sandwicherie', NULL, NULL),
 (7, 'Jus Frais', 'Jus Frais', NULL, NULL),
@@ -49,30 +49,30 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `data_rows`
+-- Structure de la table data_rows
 --
 
-CREATE TABLE `data_rows` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `data_type_id` int(10) UNSIGNED NOT NULL,
-  `field` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required` tinyint(1) NOT NULL DEFAULT 0,
-  `browse` tinyint(1) NOT NULL DEFAULT 1,
-  `read` tinyint(1) NOT NULL DEFAULT 1,
-  `edit` tinyint(1) NOT NULL DEFAULT 1,
-  `add` tinyint(1) NOT NULL DEFAULT 1,
-  `delete` tinyint(1) NOT NULL DEFAULT 1,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order` int(11) NOT NULL DEFAULT 1
+CREATE TABLE data_rows (
+  id int(10) UNSIGNED NOT NULL,
+  data_type_id int(10) UNSIGNED NOT NULL,
+  field varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  type varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  display_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  required tinyint(1) NOT NULL DEFAULT 0,
+  browse tinyint(1) NOT NULL DEFAULT 1,
+  read tinyint(1) NOT NULL DEFAULT 1,
+  edit tinyint(1) NOT NULL DEFAULT 1,
+  add tinyint(1) NOT NULL DEFAULT 1,
+  delete tinyint(1) NOT NULL DEFAULT 1,
+  details text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  order int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `data_rows`
+-- Déchargement des données de la table data_rows
 --
 
-INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
+INSERT INTO data_rows (id, data_type_id, field, type, display_name, required, browse, read, edit, add, delete, details, order) VALUES
 (1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
 (2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
 (3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 3),
@@ -136,32 +136,32 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `data_types`
+-- Structure de la table data_types
 --
 
-CREATE TABLE `data_types` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_singular` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_plural` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `model_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `policy_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `controller` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `generate_permissions` tinyint(1) NOT NULL DEFAULT 0,
-  `server_side` tinyint(4) NOT NULL DEFAULT 0,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE data_types (
+  id int(10) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  slug varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  display_name_singular varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  display_name_plural varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  icon varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  model_name varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  policy_name varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  controller varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  description varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  generate_permissions tinyint(1) NOT NULL DEFAULT 0,
+  server_side tinyint(4) NOT NULL DEFAULT 0,
+  details text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `data_types`
+-- Déchargement des données de la table data_types
 --
 
-INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
+INSERT INTO data_types (id, name, slug, display_name_singular, display_name_plural, icon, model_name, policy_name, controller, description, generate_permissions, server_side, details, created_at, updated_at) VALUES
 (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-07-13 11:30:28', '2020-07-16 10:32:45'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-07-13 11:30:28', '2020-07-13 11:30:28'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-07-13 11:30:28', '2020-07-13 11:30:28'),
@@ -173,65 +173,65 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 -- --------------------------------------------------------
 
 --
--- Structure de la table `failed_jobs`
+-- Structure de la table failed_jobs
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+CREATE TABLE failed_jobs (
+  id bigint(20) UNSIGNED NOT NULL,
+  connection text COLLATE utf8mb4_unicode_ci NOT NULL,
+  queue text COLLATE utf8mb4_unicode_ci NOT NULL,
+  payload longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  exception longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  failed_at timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `menus`
+-- Structure de la table menus
 --
 
-CREATE TABLE `menus` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE menus (
+  id int(10) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `menus`
+-- Déchargement des données de la table menus
 --
 
-INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO menus (id, name, created_at, updated_at) VALUES
 (1, 'admin', '2020-07-13 11:30:30', '2020-07-13 11:30:30');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `menu_items`
+-- Structure de la table menu_items
 --
 
-CREATE TABLE `menu_items` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `menu_id` int(10) UNSIGNED DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `target` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
-  `icon_class` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  `order` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parameters` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+CREATE TABLE menu_items (
+  id int(10) UNSIGNED NOT NULL,
+  menu_id int(10) UNSIGNED DEFAULT NULL,
+  title varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  url varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  target varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
+  icon_class varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  color varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  parent_id int(11) DEFAULT NULL,
+  order int(11) NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL,
+  route varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  parameters text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `menu_items`
+-- Déchargement des données de la table menu_items
 --
 
-INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
+INSERT INTO menu_items (id, menu_id, title, url, target, icon_class, color, parent_id, order, created_at, updated_at, route, parameters) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-07-13 11:30:31', '2020-07-13 11:30:31', 'voyager.dashboard', NULL),
 (2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 6, '2020-07-13 11:30:31', '2020-08-12 17:05:51', 'voyager.media.index', NULL),
 (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 5, '2020-07-13 11:30:31', '2020-08-12 17:05:51', 'voyager.users.index', NULL),
@@ -249,20 +249,20 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 -- --------------------------------------------------------
 
 --
--- Structure de la table `migrations`
+-- Structure de la table migrations
 --
 
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
+CREATE TABLE migrations (
+  id int(10) UNSIGNED NOT NULL,
+  migration varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  batch int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `migrations`
+-- Déchargement des données de la table migrations
 --
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO migrations (id, migration, batch) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -300,26 +300,26 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `oauth_access_tokens`
+-- Structure de la table oauth_access_tokens
 --
 
-CREATE TABLE `oauth_access_tokens` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `client_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `expires_at` datetime DEFAULT NULL
+CREATE TABLE oauth_access_tokens (
+  id varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  user_id bigint(20) UNSIGNED DEFAULT NULL,
+  client_id bigint(20) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  scopes text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  revoked tinyint(1) NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL,
+  expires_at datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `oauth_access_tokens`
+-- Déchargement des données de la table oauth_access_tokens
 --
 
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+INSERT INTO oauth_access_tokens (id, user_id, client_id, name, scopes, revoked, created_at, updated_at, expires_at) VALUES
 ('0030a46aa3a2791c092a111222768e25ec141d6c3ba498362d0b46706c6068162838a638d312b3bb', 5, 1, 'othmane@othmane.com-2020-07-20 17:15:05', '[]', 0, '2020-07-20 15:15:05', '2020-07-20 15:15:05', '2021-07-20 17:15:05'),
 ('01120b75cf86d308842a16511ddfdc4f489c1da392f939efea14ece0cce44209b4098b55fb75ab6f', 9, 1, 'sara@gmail.com-2020-07-30 11:27:23', '[]', 0, '2020-07-30 10:27:23', '2020-07-30 10:27:23', '2021-07-30 11:27:23'),
 ('011afeac59b3a1a0ecf49be273accd00472b036e3dd1390f6393e96623f7fc037c7de0abb55a3ea1', 1, 1, 'admin@gmail.com-2020-10-07 18:52:20', '[]', 0, '2020-10-07 17:52:20', '2020-10-07 17:52:20', '2021-10-07 18:52:20'),
@@ -559,7 +559,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('7a4dd97bff226ade990369c20f32d41a94dd81e2b2a54ad323d4ff05f728e6eaf9b95f70abf8dd32', 5, 1, 'othmane@othmane.com-2020-07-28 21:37:23', '[]', 0, '2020-07-28 20:37:23', '2020-07-28 20:37:23', '2021-07-28 21:37:23'),
 ('7a50e891ca1af40fe50fb8d849694654902e207000404c3f71d080317a763986f6a9b28c3f5ff020', 13, 1, 'jamal@gmail.com-2020-08-05 19:31:31', '[]', 0, '2020-08-05 18:31:31', '2020-08-05 18:31:31', '2021-08-05 19:31:31'),
 ('7acdb7fd572ed27a74855e22adc4b18c6d69a34c4acd597f367275e6ce1224ebf760de460c9d1712', 1, 1, 'lahcen@gmail.com-2020-08-05 16:38:59', '[]', 0, '2020-08-05 15:38:59', '2020-08-05 15:38:59', '2021-08-05 16:38:59');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+INSERT INTO oauth_access_tokens (id, user_id, client_id, name, scopes, revoked, created_at, updated_at, expires_at) VALUES
 ('7ad1611c3e5528b7aea6ba261534de2c877bd181f6f1f99d2af85b4c0cdaf62680313489fb0a0f41', 4, 1, 'lahcen@gg.com-2020-07-16 00:38:58', '[]', 0, '2020-07-15 22:39:00', '2020-07-15 22:39:00', '2021-07-16 00:39:00'),
 ('7b92a5a97ffe03338d7c36ecb5ba4565c585cb1c1e3339f91fd046456ae4829c3afbbfaaa9c8325b', 1, 1, 'lahcen@gmail.com-2020-09-15 23:09:43', '[]', 0, '2020-09-15 22:09:43', '2020-09-15 22:09:43', '2021-09-15 23:09:43'),
 ('7ba1c68db187e091f1ca3be40177a2f7f52b7ace0611d0535b6e3962125853bb4dfe2d9b64cb9c84', 13, 1, 'jamal@gmail.com-2020-08-09 11:25:45', '[]', 0, '2020-08-09 10:25:47', '2020-08-09 10:25:47', '2021-08-09 11:25:47'),
@@ -799,7 +799,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('f1ac393d0a6a03963b6ca7eefbe24d5a70a958cb2a2c29a8d94b60445274f043b36528c641595eb7', 5, 1, 'othmane@othmane.com-2020-07-29 11:37:13', '[]', 0, '2020-07-29 10:37:13', '2020-07-29 10:37:13', '2021-07-29 11:37:13'),
 ('f1d77d28cfc8355b166988c10b8aad5b170f9317cdd9098f1d281a3fc1a431abde204775adf24fac', 1, 1, 'lahcen@gmail.com-2020-09-17 14:30:31', '[]', 0, '2020-09-17 13:30:31', '2020-09-17 13:30:31', '2021-09-17 14:30:31'),
 ('f23ef661a8b7b3e8b9b0c9ac9002617c5e77fc34172e5453a6c481995c9369f5215e02ee19501102', 1, 1, 'lahcen@gmail.com-2020-09-13 15:54:15', '[]', 0, '2020-09-13 14:54:15', '2020-09-13 14:54:15', '2021-09-13 15:54:15');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+INSERT INTO oauth_access_tokens (id, user_id, client_id, name, scopes, revoked, created_at, updated_at, expires_at) VALUES
 ('f2518ec7e31c5f0a580cb849f70c74fe6dacc6723e8b58aa27197922dde6a2a3d0054f5962cdcd43', 24, 1, 'test3@test3.com-2020-09-12 22:27:09', '[]', 0, '2020-09-12 21:27:09', '2020-09-12 21:27:09', '2021-09-12 22:27:09'),
 ('f2860df7eaf05d3ef3055bc6031502fdba8c8dbadcffba9c75d1b396883c3a14548ebc50f1175389', 1, 1, 'lahcen@gmail.com-2020-08-05 16:54:32', '[]', 0, '2020-08-05 15:54:32', '2020-08-05 15:54:32', '2021-08-05 16:54:32'),
 ('f39eca9a811a4120c0d3d4446363e1e20e11c06a1a7cc34f4bb92bca6afedc5aeb0a506c6cefcb14', 1, 1, 'lahcen@gmail.com-2020-09-12 23:30:21', '[]', 0, '2020-09-12 22:30:22', '2020-09-12 22:30:22', '2021-09-12 23:30:22'),
@@ -833,103 +833,103 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 -- --------------------------------------------------------
 
 --
--- Structure de la table `oauth_auth_codes`
+-- Structure de la table oauth_auth_codes
 --
 
-CREATE TABLE `oauth_auth_codes` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `client_id` bigint(20) UNSIGNED NOT NULL,
-  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `expires_at` datetime DEFAULT NULL
+CREATE TABLE oauth_auth_codes (
+  id varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  user_id bigint(20) UNSIGNED NOT NULL,
+  client_id bigint(20) UNSIGNED NOT NULL,
+  scopes text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  revoked tinyint(1) NOT NULL,
+  expires_at datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `oauth_clients`
+-- Structure de la table oauth_clients
 --
 
-CREATE TABLE `oauth_clients` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secret` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `personal_access_client` tinyint(1) NOT NULL,
-  `password_client` tinyint(1) NOT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE oauth_clients (
+  id bigint(20) UNSIGNED NOT NULL,
+  user_id bigint(20) UNSIGNED DEFAULT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  secret varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  provider varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  redirect text COLLATE utf8mb4_unicode_ci NOT NULL,
+  personal_access_client tinyint(1) NOT NULL,
+  password_client tinyint(1) NOT NULL,
+  revoked tinyint(1) NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `oauth_clients`
+-- Déchargement des données de la table oauth_clients
 --
 
-INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+INSERT INTO oauth_clients (id, user_id, name, secret, provider, redirect, personal_access_client, password_client, revoked, created_at, updated_at) VALUES
 (1, NULL, 'Laravel Personal Access Client', 'ya0PEpLf3uFB0vCRnhrvwdBmoZ6KsRoZ8bKUGzwi', NULL, 'http://localhost', 1, 0, 0, '2020-07-15 14:47:25', '2020-07-15 14:47:25'),
 (2, NULL, 'Laravel Password Grant Client', 'DTSEeL99LbuvzHVWMWRR3gvq1hUJhhGdgccCnj2U', 'users', 'http://localhost', 0, 1, 0, '2020-07-15 14:47:25', '2020-07-15 14:47:25');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `oauth_personal_access_clients`
+-- Structure de la table oauth_personal_access_clients
 --
 
-CREATE TABLE `oauth_personal_access_clients` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `client_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE oauth_personal_access_clients (
+  id bigint(20) UNSIGNED NOT NULL,
+  client_id bigint(20) UNSIGNED NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `oauth_personal_access_clients`
+-- Déchargement des données de la table oauth_personal_access_clients
 --
 
-INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO oauth_personal_access_clients (id, client_id, created_at, updated_at) VALUES
 (1, 1, '2020-07-15 14:47:25', '2020-07-15 14:47:25');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `oauth_refresh_tokens`
+-- Structure de la table oauth_refresh_tokens
 --
 
-CREATE TABLE `oauth_refresh_tokens` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `expires_at` datetime DEFAULT NULL
+CREATE TABLE oauth_refresh_tokens (
+  id varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  access_token_id varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  revoked tinyint(1) NOT NULL,
+  expires_at datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `orders`
+-- Structure de la table orders
 --
 
-CREATE TABLE `orders` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `order_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cont` int(100) DEFAULT NULL,
-  `accept` tinyint(1) DEFAULT NULL,
-  `exp` int(11) DEFAULT NULL,
-  `price` double(8,2) NOT NULL,
-  `imageURL` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_added` tinyint(1) NOT NULL DEFAULT 0
+CREATE TABLE orders (
+  id bigint(20) UNSIGNED NOT NULL,
+  user_id bigint(20) UNSIGNED NOT NULL,
+  order_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  cont int(100) DEFAULT NULL,
+  accept tinyint(1) DEFAULT NULL,
+  exp int(11) DEFAULT NULL,
+  price double(8,2) NOT NULL,
+  imageURL varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  date text COLLATE utf8mb4_unicode_ci NOT NULL,
+  is_added tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `orders`
+-- Déchargement des données de la table orders
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `order_name`, `cont`, `accept`, `exp`, `price`, `imageURL`, `date`, `is_added`) VALUES
+INSERT INTO orders (id, user_id, order_name, cont, accept, exp, price, imageURL, date, is_added) VALUES
 (456, 15, 'Pizza Margherita', 1, 1, NULL, 39.00, 'plats/July2020/c5Eco687nMbya9QBjQ99.jpg', '11/08/2020 à 12:35:58', 0),
 (457, 15, 'Chicken Sandwich', 1, 1, NULL, 30.00, 'plats/July2020/XsQTuUeKubvPrsDEYPNp.jpg', '11/08/2020 à 12:35:58', 1),
 (458, 15, 'Pizza Margherita', 1, 1, 1, 39.00, 'plats/July2020/c5Eco687nMbya9QBjQ99.jpg', '11/08/2020 à 13:25:27', 1),
@@ -1012,34 +1012,34 @@ INSERT INTO `orders` (`id`, `user_id`, `order_name`, `cont`, `accept`, `exp`, `p
 -- --------------------------------------------------------
 
 --
--- Structure de la table `password_resets`
+-- Structure de la table password_resets
 --
 
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+CREATE TABLE password_resets (
+  email varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  token varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  created_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `permissions`
+-- Structure de la table permissions
 --
 
-CREATE TABLE `permissions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE permissions (
+  id bigint(20) UNSIGNED NOT NULL,
+  key varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  table_name varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `permissions`
+-- Déchargement des données de la table permissions
 --
 
-INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO permissions (id, key, table_name, created_at, updated_at) VALUES
 (1, 'browse_admin', NULL, '2020-07-13 11:30:31', '2020-07-13 11:30:31'),
 (2, 'browse_bread', NULL, '2020-07-13 11:30:31', '2020-07-13 11:30:31'),
 (3, 'browse_database', NULL, '2020-07-13 11:30:31', '2020-07-13 11:30:31'),
@@ -1090,19 +1090,19 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `permission_role`
+-- Structure de la table permission_role
 --
 
-CREATE TABLE `permission_role` (
-  `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED NOT NULL
+CREATE TABLE permission_role (
+  permission_id bigint(20) UNSIGNED NOT NULL,
+  role_id bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `permission_role`
+-- Déchargement des données de la table permission_role
 --
 
-INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+INSERT INTO permission_role (permission_id, role_id) VALUES
 (1, 1),
 (2, 1),
 (3, 1),
@@ -1153,31 +1153,31 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `plats`
+-- Structure de la table plats
 --
 
-CREATE TABLE `plats` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cont` int(11) NOT NULL DEFAULT 1,
-  `description1` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description2` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description3` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(8,2) NOT NULL,
-  `image1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_added` tinyint(1) NOT NULL DEFAULT 0,
-  `category_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE plats (
+  id bigint(20) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  cont int(11) NOT NULL DEFAULT 1,
+  description1 text COLLATE utf8mb4_unicode_ci NOT NULL,
+  description2 text COLLATE utf8mb4_unicode_ci NOT NULL,
+  description3 text COLLATE utf8mb4_unicode_ci NOT NULL,
+  price double(8,2) NOT NULL,
+  image1 varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  image2 varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  image3 varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  is_added tinyint(1) NOT NULL DEFAULT 0,
+  category_id bigint(20) UNSIGNED NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `plats`
+-- Déchargement des données de la table plats
 --
 
-INSERT INTO `plats` (`id`, `name`, `cont`, `description1`, `description2`, `description3`, `price`, `image1`, `image2`, `image3`, `is_added`, `category_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO plats (id, name, cont, description1, description2, description3, price, image1, image2, image3, is_added, category_id, created_at, updated_at) VALUES
 (17, 'Pizza Margherita', 1, 'La pizza Margherita est le nom d\'une spécialité culinaire traditionnelle de la ville de Naples en Italie. Très populaire, cette pizza napoletana est garnie de tomates, de mozzarella', ',de basilic frais, de sel et d\'huile d\'olive. Cette pizza est aux couleurs du drapeau italien.', 'Mozzarella rappé', 39.00, 'plats/July2020/c5Eco687nMbya9QBjQ99.jpg', 'plats/July2020/m136NS8NXyG4o7Nmadx5.jpg', 'plats/July2020/r5fk3BCefqba78ggebJw.jpg', 0, 2, NULL, NULL),
 (18, 'Pizza Végétarienne', 1, 'Une pizza végétarienne composée de légumes de la saison avec de la mozarella rapée.', '----', 'Mozzarella rappé, Légumes', 45.00, 'plats/July2020/HhXBJJ8Rotxs9Eoupd2F.jpg', 'plats/July2020/Joukc1hRJADR8OrDEkK2.jpg', 'plats/July2020/kktn88Q5yjIqAY1tLAqX.jpg', 0, 2, NULL, NULL),
 (19, 'Pizza Kebab', 1, 'Les délices de la mer sur une pizza croustillante.', '-', 'Poulet, Mozzarella rappé', 70.00, 'plats/September2020/AWlzEoPinQSds25gBvyU.jpg', 'plats/July2020/iw72NSWdT0GzAUJeWPfF.jpg', 'plats/July2020/doZ9XMIyfZUFuZEAUzSM.jpg', 0, 2, NULL, NULL),
@@ -1194,24 +1194,24 @@ INSERT INTO `plats` (`id`, `name`, `cont`, `description1`, `description2`, `desc
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations`
+-- Structure de la table reservations
 --
 
-CREATE TABLE `reservations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `id_user` bigint(20) UNSIGNED NOT NULL,
-  `adresse` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ville` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `updated_at` timestamp NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+CREATE TABLE reservations (
+  id int(10) UNSIGNED NOT NULL,
+  id_user bigint(20) UNSIGNED NOT NULL,
+  adresse text COLLATE utf8mb4_unicode_ci NOT NULL,
+  ville varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  phone varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  updated_at timestamp NULL DEFAULT current_timestamp(),
+  created_at timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `reservations`
+-- Déchargement des données de la table reservations
 --
 
-INSERT INTO `reservations` (`id`, `id_user`, `adresse`, `ville`, `phone`, `updated_at`, `created_at`) VALUES
+INSERT INTO reservations (id, id_user, adresse, ville, phone, updated_at, created_at) VALUES
 (38, 9, 'hjjeferg', 'Casablanca', '0622110116', '2020-08-05 15:12:50', '2020-08-05 15:12:50'),
 (39, 13, 'LAHCEN', 'Casablanca', '0622110116', '2020-08-05 14:33:28', '2020-08-05 14:33:28'),
 (40, 13, 'DFFSDF', 'Casablanca', '0622110116', '2020-08-05 14:37:20', '2020-08-05 14:37:20'),
@@ -1223,47 +1223,47 @@ INSERT INTO `reservations` (`id`, `id_user`, `adresse`, `ville`, `phone`, `updat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Structure de la table roles
 --
 
-CREATE TABLE `roles` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE roles (
+  id bigint(20) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  display_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `roles`
+-- Déchargement des données de la table roles
 --
 
-INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO roles (id, name, display_name, created_at, updated_at) VALUES
 (1, 'admin', 'Administrator', '2020-07-13 11:30:31', '2020-07-13 11:30:31'),
 (2, 'user', 'Normal User', '2020-07-13 11:30:31', '2020-07-13 11:30:31');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `settings`
+-- Structure de la table settings
 --
 
-CREATE TABLE `settings` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order` int(11) NOT NULL DEFAULT 1,
-  `group` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+CREATE TABLE settings (
+  id int(10) UNSIGNED NOT NULL,
+  key varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  display_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  value text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  details text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  type varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  order int(11) NOT NULL DEFAULT 1,
+  group varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `settings`
+-- Déchargement des données de la table settings
 --
 
-INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
+INSERT INTO settings (id, key, display_name, value, details, type, order, group) VALUES
 (1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
 (2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
 (3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
@@ -1278,48 +1278,48 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `translations`
+-- Structure de la table translations
 --
 
-CREATE TABLE `translations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foreign_key` int(10) UNSIGNED NOT NULL,
-  `locale` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE translations (
+  id int(10) UNSIGNED NOT NULL,
+  table_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  column_name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  foreign_key int(10) UNSIGNED NOT NULL,
+  locale varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  value text COLLATE utf8mb4_unicode_ci NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Structure de la table users
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED DEFAULT 2,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
-  `phone` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `adresse` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ville` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `settings` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE users (
+  id bigint(20) UNSIGNED NOT NULL,
+  role_id bigint(20) UNSIGNED DEFAULT 2,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  email varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  avatar varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  phone text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  adresse text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  ville text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  email_verified_at timestamp NULL DEFAULT NULL,
+  password varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  remember_token varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  settings text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Déchargement des données de la table users
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `phone`, `adresse`, `ville`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
+INSERT INTO users (id, role_id, name, email, avatar, phone, adresse, ville, email_verified_at, password, remember_token, settings, created_at, updated_at) VALUES
 (1, 1, 'admin', 'admin@gmail.com', 'users/July2020/E3Q76JcMLYeh1pcPGcOV.jpg', NULL, NULL, NULL, NULL, '$2y$10$aFLciK2X3KHdb9vnvlDepOVzllvVlNRMqSZuAiS1qZLguuTRSka3q', 'S60VJrN5vcnPpUkyHSs6DQeHI6rUdGh7wdujZqKNDxaSuCm4W18BP68FEsmQ', '{\"locale\":\"fr\"}', '2020-07-13 11:33:46', '2020-09-20 10:52:42'),
 (2, 2, 'lahcen', 'lahcen12@gmail.com', 'users/default.png', NULL, NULL, NULL, NULL, '$2y$10$mUqfYBkq/EMzqpaHNyGOs.AQM3uBBu23FJO1G6qtRYkJYqg0shoLq', NULL, NULL, '2020-07-15 17:05:01', '2020-07-15 17:05:10'),
 (4, 2, 'lahcen LH', 'lahcen@gg.com', 'users/default.png', NULL, NULL, NULL, NULL, '$2y$10$u1wFocdEtiKUnM1sBZPRsOrhm1UBBn5ikE7VOF4ZkVhk0yd1opAj.', NULL, NULL, '2020-07-15 21:23:46', '2020-07-15 21:23:48'),
@@ -1359,30 +1359,30 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `phone`, `adres
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_clients`
+-- Structure de la table user_clients
 --
 
-CREATE TABLE `user_clients` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE user_clients (
+  id bigint(20) UNSIGNED NOT NULL,
+  name varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  email varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  Phone varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  email_verified_at timestamp NULL DEFAULT NULL,
+  password varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  remember_token varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_roles`
+-- Structure de la table user_roles
 --
 
-CREATE TABLE `user_roles` (
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED NOT NULL
+CREATE TABLE user_roles (
+  user_id bigint(20) UNSIGNED NOT NULL,
+  role_id bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1390,338 +1390,338 @@ CREATE TABLE `user_roles` (
 --
 
 --
--- Index pour la table `categories`
+-- Index pour la table categories
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `categories_id_unique` (`id`);
+ALTER TABLE categories
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY categories_id_unique (id);
 
 --
--- Index pour la table `data_rows`
+-- Index pour la table data_rows
 --
-ALTER TABLE `data_rows`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
+ALTER TABLE data_rows
+  ADD PRIMARY KEY (id),
+  ADD KEY data_rows_data_type_id_foreign (data_type_id);
 
 --
--- Index pour la table `data_types`
+-- Index pour la table data_types
 --
-ALTER TABLE `data_types`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `data_types_name_unique` (`name`),
-  ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
+ALTER TABLE data_types
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY data_types_name_unique (name),
+  ADD UNIQUE KEY data_types_slug_unique (slug);
 
 --
--- Index pour la table `failed_jobs`
+-- Index pour la table failed_jobs
 --
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE failed_jobs
+  ADD PRIMARY KEY (id);
 
 --
--- Index pour la table `menus`
+-- Index pour la table menus
 --
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `menus_name_unique` (`name`);
+ALTER TABLE menus
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY menus_name_unique (name);
 
 --
--- Index pour la table `menu_items`
+-- Index pour la table menu_items
 --
-ALTER TABLE `menu_items`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
+ALTER TABLE menu_items
+  ADD PRIMARY KEY (id),
+  ADD KEY menu_items_menu_id_foreign (menu_id);
 
 --
--- Index pour la table `migrations`
+-- Index pour la table migrations
 --
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE migrations
+  ADD PRIMARY KEY (id);
 
 --
--- Index pour la table `oauth_access_tokens`
+-- Index pour la table oauth_access_tokens
 --
-ALTER TABLE `oauth_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
+ALTER TABLE oauth_access_tokens
+  ADD PRIMARY KEY (id),
+  ADD KEY oauth_access_tokens_user_id_index (user_id);
 
 --
--- Index pour la table `oauth_auth_codes`
+-- Index pour la table oauth_auth_codes
 --
-ALTER TABLE `oauth_auth_codes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
+ALTER TABLE oauth_auth_codes
+  ADD PRIMARY KEY (id),
+  ADD KEY oauth_auth_codes_user_id_index (user_id);
 
 --
--- Index pour la table `oauth_clients`
+-- Index pour la table oauth_clients
 --
-ALTER TABLE `oauth_clients`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `oauth_clients_user_id_index` (`user_id`);
+ALTER TABLE oauth_clients
+  ADD PRIMARY KEY (id),
+  ADD KEY oauth_clients_user_id_index (user_id);
 
 --
--- Index pour la table `oauth_personal_access_clients`
+-- Index pour la table oauth_personal_access_clients
 --
-ALTER TABLE `oauth_personal_access_clients`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE oauth_personal_access_clients
+  ADD PRIMARY KEY (id);
 
 --
--- Index pour la table `oauth_refresh_tokens`
+-- Index pour la table oauth_refresh_tokens
 --
-ALTER TABLE `oauth_refresh_tokens`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE oauth_refresh_tokens
+  ADD PRIMARY KEY (id);
 
 --
--- Index pour la table `orders`
+-- Index pour la table orders
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_user` (`user_id`);
+ALTER TABLE orders
+  ADD PRIMARY KEY (id),
+  ADD KEY order_user (user_id);
 
 --
--- Index pour la table `password_resets`
+-- Index pour la table password_resets
 --
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
+ALTER TABLE password_resets
+  ADD KEY password_resets_email_index (email);
 
 --
--- Index pour la table `permissions`
+-- Index pour la table permissions
 --
-ALTER TABLE `permissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `permissions_key_index` (`key`);
+ALTER TABLE permissions
+  ADD PRIMARY KEY (id),
+  ADD KEY permissions_key_index (key);
 
 --
--- Index pour la table `permission_role`
+-- Index pour la table permission_role
 --
-ALTER TABLE `permission_role`
-  ADD PRIMARY KEY (`permission_id`,`role_id`),
-  ADD KEY `permission_role_permission_id_index` (`permission_id`),
-  ADD KEY `permission_role_role_id_index` (`role_id`);
+ALTER TABLE permission_role
+  ADD PRIMARY KEY (permission_id,role_id),
+  ADD KEY permission_role_permission_id_index (permission_id),
+  ADD KEY permission_role_role_id_index (role_id);
 
 --
--- Index pour la table `plats`
+-- Index pour la table plats
 --
-ALTER TABLE `plats`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `category_plat` (`category_id`);
+ALTER TABLE plats
+  ADD PRIMARY KEY (id),
+  ADD KEY category_plat (category_id);
 
 --
--- Index pour la table `reservations`
+-- Index pour la table reservations
 --
-ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rser_client_user` (`id_user`);
+ALTER TABLE reservations
+  ADD PRIMARY KEY (id),
+  ADD KEY rser_client_user (id_user);
 
 --
--- Index pour la table `roles`
+-- Index pour la table roles
 --
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `roles_name_unique` (`name`);
+ALTER TABLE roles
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY roles_name_unique (name);
 
 --
--- Index pour la table `settings`
+-- Index pour la table settings
 --
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `settings_key_unique` (`key`);
+ALTER TABLE settings
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY settings_key_unique (key);
 
 --
--- Index pour la table `translations`
+-- Index pour la table translations
 --
-ALTER TABLE `translations`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
+ALTER TABLE translations
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY translations_table_name_column_name_foreign_key_locale_unique (table_name,column_name,foreign_key,locale);
 
 --
--- Index pour la table `users`
+-- Index pour la table users
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_role_id_foreign` (`role_id`);
+ALTER TABLE users
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY users_email_unique (email),
+  ADD KEY users_role_id_foreign (role_id);
 
 --
--- Index pour la table `user_clients`
+-- Index pour la table user_clients
 --
-ALTER TABLE `user_clients`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_clients_email_unique` (`email`),
-  ADD UNIQUE KEY `user_clients_phone_unique` (`Phone`);
+ALTER TABLE user_clients
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY user_clients_email_unique (email),
+  ADD UNIQUE KEY user_clients_phone_unique (Phone);
 
 --
--- Index pour la table `user_roles`
+-- Index pour la table user_roles
 --
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `user_roles_user_id_index` (`user_id`),
-  ADD KEY `user_roles_role_id_index` (`role_id`);
+ALTER TABLE user_roles
+  ADD PRIMARY KEY (user_id,role_id),
+  ADD KEY user_roles_user_id_index (user_id),
+  ADD KEY user_roles_role_id_index (role_id);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT pour la table categories
 --
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE categories
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `data_rows`
+-- AUTO_INCREMENT pour la table data_rows
 --
-ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+ALTER TABLE data_rows
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT pour la table `data_types`
+-- AUTO_INCREMENT pour la table data_types
 --
-ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE data_types
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `failed_jobs`
+-- AUTO_INCREMENT pour la table failed_jobs
 --
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE failed_jobs
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `menus`
+-- AUTO_INCREMENT pour la table menus
 --
-ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE menus
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `menu_items`
+-- AUTO_INCREMENT pour la table menu_items
 --
-ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE menu_items
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT pour la table `migrations`
+-- AUTO_INCREMENT pour la table migrations
 --
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+ALTER TABLE migrations
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT pour la table `oauth_clients`
+-- AUTO_INCREMENT pour la table oauth_clients
 --
-ALTER TABLE `oauth_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE oauth_clients
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `oauth_personal_access_clients`
+-- AUTO_INCREMENT pour la table oauth_personal_access_clients
 --
-ALTER TABLE `oauth_personal_access_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE oauth_personal_access_clients
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `orders`
+-- AUTO_INCREMENT pour la table orders
 --
-ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=565;
+ALTER TABLE orders
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=565;
 
 --
--- AUTO_INCREMENT pour la table `permissions`
+-- AUTO_INCREMENT pour la table permissions
 --
-ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+ALTER TABLE permissions
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT pour la table `plats`
+-- AUTO_INCREMENT pour la table plats
 --
-ALTER TABLE `plats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE plats
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT pour la table `reservations`
+-- AUTO_INCREMENT pour la table reservations
 --
-ALTER TABLE `reservations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+ALTER TABLE reservations
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT pour la table roles
 --
-ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE roles
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `settings`
+-- AUTO_INCREMENT pour la table settings
 --
-ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE settings
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT pour la table `translations`
+-- AUTO_INCREMENT pour la table translations
 --
-ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE translations
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT pour la table users
 --
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+ALTER TABLE users
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT pour la table `user_clients`
+-- AUTO_INCREMENT pour la table user_clients
 --
-ALTER TABLE `user_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE user_clients
+  MODIFY id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `data_rows`
+-- Contraintes pour la table data_rows
 --
-ALTER TABLE `data_rows`
-  ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE data_rows
+  ADD CONSTRAINT data_rows_data_type_id_foreign FOREIGN KEY (data_type_id) REFERENCES data_types (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `menu_items`
+-- Contraintes pour la table menu_items
 --
-ALTER TABLE `menu_items`
-  ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
+ALTER TABLE menu_items
+  ADD CONSTRAINT menu_items_menu_id_foreign FOREIGN KEY (menu_id) REFERENCES menus (id) ON DELETE CASCADE;
 
 --
--- Contraintes pour la table `orders`
+-- Contraintes pour la table orders
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `order_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE orders
+  ADD CONSTRAINT order_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `permission_role`
+-- Contraintes pour la table permission_role
 --
-ALTER TABLE `permission_role`
-  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+ALTER TABLE permission_role
+  ADD CONSTRAINT permission_role_permission_id_foreign FOREIGN KEY (permission_id) REFERENCES permissions (id) ON DELETE CASCADE,
+  ADD CONSTRAINT permission_role_role_id_foreign FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE;
 
 --
--- Contraintes pour la table `plats`
+-- Contraintes pour la table plats
 --
-ALTER TABLE `plats`
-  ADD CONSTRAINT `category_plat` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE plats
+  ADD CONSTRAINT category_plat FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reservations`
+-- Contraintes pour la table reservations
 --
-ALTER TABLE `reservations`
-  ADD CONSTRAINT `rser_client_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE reservations
+  ADD CONSTRAINT rser_client_user FOREIGN KEY (id_user) REFERENCES users (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `users`
+-- Contraintes pour la table users
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+ALTER TABLE users
+  ADD CONSTRAINT users_role_id_foreign FOREIGN KEY (role_id) REFERENCES roles (id);
 
 --
--- Contraintes pour la table `user_roles`
+-- Contraintes pour la table user_roles
 --
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE user_roles
+  ADD CONSTRAINT user_roles_role_id_foreign FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
+  ADD CONSTRAINT user_roles_user_id_foreign FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
